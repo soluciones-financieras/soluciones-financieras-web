@@ -1,0 +1,99 @@
+---
+const reasons = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`,
+    title: '9+ Años de Experiencia',
+    description: 'Desde 2015 ayudando a familias del Sur del Valle y Norte del Cauca a acceder al crédito justo.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: 'Inclusión Real',
+    description: 'Aprobamos créditos incluso con reportes en Datacrédito. No discriminamos por historial crediticio negativo.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 13 9 20 9"/><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"/><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/></svg>`,
+    title: 'Requisitos Mínimos',
+    description: 'Simplificamos el proceso al máximo. Sin papeleo innecesario, sin fiadores, sin complicaciones.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: 'Respuesta en 24-48h',
+    description: 'Proceso ágil de aprobación. En menos de 48 horas sabrás si tu crédito fue aprobado.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: 'Procesos Transparentes',
+    description: 'Cero letra pequeña. Te explicamos cada paso del proceso y todas las condiciones antes de firmar.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: 'Cobertura Regional',
+    description: 'Atendemos presencialmente en el Sur del Valle del Cauca y Norte del Cauca. También por WhatsApp.',
+  },
+];
+
+const team = [
+  {
+    photo: '/images/equipo-abogada.jpg',
+    name: 'Abogada del Equipo',
+    role: 'Asesora Jurídica y Limpieza Crediticia',
+  },
+  {
+    photo: '/images/equipo-asesora.jpg',
+    name: 'Asesora Financiera',
+    role: 'Gestora de Créditos por Libranza',
+  },
+];
+---
+
+<section id="nosotros" class="bg-[#111111] py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-16">
+      <span class="text-brand-green text-sm font-semibold uppercase tracking-widest">¿Por qué elegirnos?</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+        Nuestro Compromiso Contigo
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Más de 9 años trabajando para que el crédito no sea un privilegio sino un derecho accesible para todos.
+      </p>
+    </div>
+
+    <!-- Grid de razones -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+      {reasons.map((r) => (
+        <div class="flex gap-4 p-5 bg-[#1A1A1A] border border-white/5 rounded-xl hover:border-brand-green/20 transition-all duration-300">
+          <div class="text-brand-green flex-shrink-0 mt-0.5" set:html={r.icon} />
+          <div>
+            <h3 class="font-heading font-bold text-white text-base mb-1">{r.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{r.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Equipo -->
+    <div class="text-center mb-10">
+      <h3 class="font-heading text-2xl font-bold text-white">Nuestro Equipo</h3>
+      <p class="text-gray-400 mt-2">Profesionales comprometidos con tu bienestar financiero.</p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-8 justify-center">
+      {team.map((member) => (
+        <div class="flex flex-col items-center text-center bg-[#1A1A1A] border border-white/5 rounded-2xl overflow-hidden w-full sm:max-w-xs">
+          <img
+            src={member.photo}
+            alt={member.name}
+            class="w-full h-64 object-cover object-top"
+          />
+          <div class="p-6">
+            <h4 class="font-heading font-bold text-white text-lg">{member.name}</h4>
+            <p class="text-brand-green text-sm mt-1">{member.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Soluciones Financieras — Créditos por Libranza y Limpieza Crediticia en Colombia',
+  description = 'Créditos ágiles por libranza para pensionados, fuerzas armadas y docentes. Limpieza legal de reportes Datacrédito. Más de 9 años de experiencia en el Sur del Valle y Norte del Cauca.',
+} = Astro.props;
+
+const siteUrl = 'https://solucionesfinancieras.com';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="créditos por libranza, limpieza de reportes Datacrédito, créditos para pensionados Colombia, créditos fuerzas armadas, créditos docentes, recuperación vida crediticia" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/logos/logo-color.png`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Google Fonts: Inter + Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#1A1A1A] text-white font-sans antialiased">
+    <slot />
+  </body>
+</html>

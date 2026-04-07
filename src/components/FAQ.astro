@@ -1,0 +1,94 @@
+---
+const faqs = [
+  {
+    q: '¿Qué necesito para aplicar a un crédito por libranza?',
+    a: 'Los requisitos son mínimos: documento de identidad vigente, comprobante de pensión o nómina, y un número de contacto. No pedimos fiadores ni garantías adicionales. El proceso es completamente ágil.',
+  },
+  {
+    q: '¿Puedo aplicar si estoy reportado en Datacrédito o CIFIN?',
+    a: '¡Sí! Somos especialistas en créditos para personas con reportes negativos. Evaluamos tu capacidad de pago real, no solo tu historial. Además, si tienes deudas con más de 8 años de antigüedad, podemos ayudarte a limpiar tu historial legalmente.',
+  },
+  {
+    q: '¿Cómo funciona el crédito por libranza?',
+    a: 'El crédito por libranza es un descuento directo de tu nómina o mesada pensional. Esto significa que la cuota se descuenta automáticamente antes de que recibas tu pago, lo que garantiza al prestamista y te permite acceder a mejores condiciones.',
+  },
+  {
+    q: '¿Cuánto tiempo tarda el proceso de aprobación?',
+    a: 'Una vez enviada tu solicitud y documentos, respondemos en un plazo de 24 a 48 horas hábiles. En algunos casos, para pensionados y empleados públicos, la aprobación puede ser el mismo día.',
+  },
+  {
+    q: '¿En qué ciudades o regiones atienden?',
+    a: 'Atendemos presencialmente en el Sur del Valle del Cauca (Cali, Palmira, Buenaventura y municipios cercanos) y Norte del Cauca (Popayán, Santander de Quilichao, entre otros). También atendemos por WhatsApp a nivel nacional.',
+  },
+  {
+    q: '¿Cuánto puedo solicitar?',
+    a: 'Los montos dependen de tu capacidad de pago y tipo de crédito. Generalmente trabajamos desde $500.000 hasta montos mayores para pensionados y fuerzas armadas. Te asesoramos sin compromiso para encontrar la mejor opción.',
+  },
+];
+---
+
+<section class="bg-[#111111] py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-14">
+      <span class="text-brand-green text-sm font-semibold uppercase tracking-widest">Resolvemos tus dudas</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+        Preguntas Frecuentes
+      </h2>
+    </div>
+
+    <!-- Acordeón -->
+    <div class="space-y-3" id="faq-container">
+      {faqs.map((faq, i) => (
+        <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-[#1A1A1A] hover:border-brand-green/20 transition-colors duration-200">
+          <button
+            class="faq-trigger w-full text-left flex items-center justify-between gap-4 px-6 py-5"
+            aria-expanded="false"
+            data-index={i}
+          >
+            <span class="font-heading font-semibold text-white text-base leading-snug">{faq.q}</span>
+            <svg class="faq-icon w-5 h-5 text-brand-green flex-shrink-0 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5">
+            <p class="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const content = item?.querySelector('.faq-content');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Cerrar todos los demás
+      document.querySelectorAll('.faq-item').forEach((other) => {
+        if (other !== item) {
+          other.querySelector('.faq-content')?.classList.add('hidden');
+          other.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-icon')?.classList.remove('rotate-180');
+        }
+      });
+
+      // Alternar el actual
+      if (isOpen) {
+        content?.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon?.classList.remove('rotate-180');
+      } else {
+        content?.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        icon?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

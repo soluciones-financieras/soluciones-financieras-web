@@ -1,0 +1,90 @@
+---
+const segments = [
+  {
+    emoji: '👴',
+    title: 'Pensionados',
+    subtitle: 'Hasta 90 años de edad',
+    points: [
+      'Todas las pagadurías nacionales',
+      'Montos desde $500.000',
+      'Aprobación en 24-48 horas',
+      'Con o sin reportes en centrales',
+    ],
+    accent: 'brand-green',
+  },
+  {
+    emoji: '🎖️',
+    title: 'Fuerzas Armadas',
+    subtitle: 'Policía, Ejército, Armada y Fuerza Aérea',
+    points: [
+      'Activos y en retiro',
+      'Con y sin reportes',
+      'Tasas preferenciales por libranza',
+      'Trámites 100% ágiles',
+    ],
+    accent: 'brand-blue',
+  },
+  {
+    emoji: '📚',
+    title: 'Docentes',
+    subtitle: 'Propiedad, provisionales y definitivas',
+    points: [
+      'Sector oficial y privado',
+      'Todas las secretarías de educación',
+      'Requisitos mínimos',
+      'Sin importar el tiempo en servicio',
+    ],
+    accent: 'brand-green',
+  },
+  {
+    emoji: '💼',
+    title: 'Independientes',
+    subtitle: 'Con o sin Cámara de Comercio',
+    points: [
+      'Sin necesidad de nómina fija',
+      'Evaluamos capacidad de pago real',
+      'Respuesta rápida',
+      'Asesoría personalizada',
+    ],
+    accent: 'brand-blue',
+  },
+];
+---
+
+<section id="especialidades" class="bg-[#1A1A1A] py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-16">
+      <span class="text-brand-green text-sm font-semibold uppercase tracking-widest">Para quién trabajamos</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+        Nuestras Especialidades
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        9+ años especializándonos en los segmentos con mayor necesidad de crédito justo en Colombia.
+      </p>
+    </div>
+
+    <!-- Grid 2x2 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {segments.map((seg) => (
+        <div class="bg-[#111111] border border-white/5 rounded-2xl p-8 hover:border-brand-green/20 transition-all duration-300 group">
+          <div class="text-4xl mb-4">{seg.emoji}</div>
+          <h3 class="font-heading text-xl font-bold text-white mb-1">{seg.title}</h3>
+          <p class="text-brand-green text-sm font-medium mb-6">{seg.subtitle}</p>
+          <ul class="space-y-3">
+            {seg.points.map((point) => (
+              <li class="flex items-start gap-2 text-gray-400 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

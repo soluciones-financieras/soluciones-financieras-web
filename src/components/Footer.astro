@@ -1,0 +1,69 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#0a0a0a] border-t border-white/5 py-12 px-4">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="flex flex-col md:flex-row justify-between gap-10 mb-10">
+
+      <!-- Logo + descripción -->
+      <div class="max-w-xs">
+        <img
+          src="/logos/logo-blanco.png"
+          alt="Soluciones Financieras"
+          class="h-10 w-auto object-contain mb-4"
+        />
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Más de 9 años ayudando a familias del Sur del Valle y Norte del Cauca a acceder al crédito justo.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-col sm:flex-row gap-10">
+        <div>
+          <h5 class="text-white font-semibold text-sm mb-4">Navegación</h5>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="text-gray-500 hover:text-brand-green text-sm transition-colors">Inicio</a></li>
+            <li><a href="#servicios" class="text-gray-500 hover:text-brand-green text-sm transition-colors">Servicios</a></li>
+            <li><a href="#especialidades" class="text-gray-500 hover:text-brand-green text-sm transition-colors">Especialidades</a></li>
+            <li><a href="#nosotros" class="text-gray-500 hover:text-brand-green text-sm transition-colors">Nosotros</a></li>
+            <li><a href="#contacto" class="text-gray-500 hover:text-brand-green text-sm transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-semibold text-sm mb-4">Servicios</h5>
+          <ul class="space-y-2">
+            <li><span class="text-gray-500 text-sm">Créditos por Libranza</span></li>
+            <li><span class="text-gray-500 text-sm">Créditos para Independientes</span></li>
+            <li><span class="text-gray-500 text-sm">Recuperación Crediticia</span></li>
+            <li><span class="text-gray-500 text-sm">Asesoría Jurídica</span></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-semibold text-sm mb-4">Contacto</h5>
+          <ul class="space-y-2">
+            <li class="text-gray-500 text-sm">Sur del Valle del Cauca</li>
+            <li class="text-gray-500 text-sm">Norte del Cauca</li>
+            <li>
+              <a href="https://wa.me/573XXXXXXXXX" target="_blank" rel="noopener" class="text-brand-green hover:text-brand-green-light text-sm transition-colors">
+                WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider + copyright -->
+    <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-gray-600 text-xs">
+        © {year} Soluciones Financieras. Todos los derechos reservados.
+      </p>
+      <p class="text-gray-600 text-xs">
+        Servicio de intermediación financiera. No somos banco ni entidad financiera vigilada.
+      </p>
+    </div>
+
+  </div>
+</footer>
