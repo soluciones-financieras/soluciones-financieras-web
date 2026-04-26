@@ -1,68 +1,149 @@
 ---
-const services = [
+// Bloque 1 — Línea de Créditos (cards por persona)
+const creditLines = [
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
-    title: 'Créditos por Libranza',
-    description: 'Para pensionados, fuerzas armadas (Policía, Ejército, Armada, Fuerza Aérea), docentes y empleados públicos. Descuento directo de nómina.',
-    tags: ['Pensionados', 'FF.AA.', 'Docentes'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    title: 'Pensionados',
+    description: 'Hasta los 90 años, incluso con reportes en centrales de riesgo.',
+    tags: ['Hasta 90 años', 'Con reportes'],
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>`,
-    title: 'Créditos para Independientes',
-    description: 'Con o sin Cámara de Comercio. Para trabajadores por cuenta propia que necesitan financiamiento ágil sin trámites complicados.',
-    tags: ['Con CC', 'Sin CC'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+    title: 'FF.AA. y Docentes',
+    description: 'Provisionales, temporales o en propiedad con condiciones preferenciales.',
+    tags: ['Libranza', 'Preferencial'],
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+    title: 'Empleados',
+    description: 'Sector público y privado. Aplica incluso si estás reportado.',
+    tags: ['Con reportes', 'Sin reportes'],
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-    title: 'Empleados con/sin Reportes',
-    description: 'Aprobamos créditos incluso si tienes reportes en Datacrédito o CIFIN. Empleados del sector privado y público con o sin historial negativo.',
-    tags: ['Sin reportes', 'Con reportes'],
+    title: 'Independientes',
+    description: 'Trabajadores por cuenta propia. Con o sin Cámara de Comercio.',
+    tags: ['Con CC', 'Sin CC'],
   },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-    title: 'Recuperación de Vida Crediticia',
-    description: 'Asesoría jurídica especializada para limpiar tu historial crediticio. Eliminamos reportes negativos con más de 8 años y mejoramos tu perfil.',
-    tags: ['Asesoría legal', 'Limpieza +8 años'],
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
-    title: 'Servicios Complementarios',
-    description: 'Gestión de cesantías y aportes a EPS. Orientación integral para que aproveches todos tus beneficios laborales y de seguridad social.',
-    tags: ['EPS', 'Cesantías'],
-  },
+];
+
+// Bloque 2 — Servicios Adicionales (checklist)
+const additionalServices = [
+  'Limpieza de historial crediticio (+8 años)',
+  'Asesoría en centrales de riesgo',
+  'Gestión de huellas de consulta',
+  'Mejoramiento de puntaje crediticio',
+  'Afiliación a EPS',
+  'Retiro de cesantías',
+];
+
+// Bloque 3 — Stats banner
+const stats = [
+  { value: '$150M', label: 'Monto máximo' },
+  { value: '1%', label: 'Tasa MMV desde' },
+  { value: '1 SMLV', label: 'Ingreso mínimo' },
+  { value: '+9', label: 'Años de experiencia' },
 ];
 ---
 
-<section id="servicios" class="bg-[#111111] py-20 px-4">
-  <div class="max-w-6xl mx-auto">
+<section id="servicios" class="relative bg-[#111111] py-20 px-4 overflow-hidden">
 
-    <!-- Encabezado -->
-    <div class="text-center mb-16">
-      <span class="text-brand-green text-sm font-semibold uppercase tracking-widest">Lo que ofrecemos</span>
-      <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+  <!-- Orbes ambientales (profundidad de fondo) -->
+  <div class="absolute top-1/3 -right-40 w-[28rem] h-[28rem] bg-brand-blue/10 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-1/4 -left-40 w-[28rem] h-[28rem] bg-brand-green/10 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-6xl mx-auto">
+
+    <!-- Encabezado principal -->
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
         Nuestros Servicios
       </h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+      <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
         Soluciones financieras diseñadas para cada perfil. Ágiles, transparentes y con requisitos mínimos.
       </p>
     </div>
 
-    <!-- Grid de cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service) => (
-        <div class="bg-[#1A1A1A] border border-white/5 rounded-2xl p-6 hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-green/5 group">
-          <div class="text-brand-green mb-4 group-hover:scale-110 transition-transform duration-300 w-fit" set:html={service.icon} />
-          <h3 class="font-heading text-lg font-bold text-white mb-3">{service.title}</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-4">{service.description}</p>
-          <div class="flex flex-wrap gap-2">
-            {service.tags.map((tag) => (
-              <span class="text-xs text-brand-green bg-brand-green/10 border border-brand-green/20 px-2.5 py-1 rounded-full font-medium">
-                {tag}
-              </span>
-            ))}
+    <!-- ============ BLOQUE 1 — Línea de Créditos ============ -->
+    <div class="mb-16 md:mb-20">
+
+      <div class="flex items-center justify-center gap-3 mb-8 md:mb-10">
+        <div class="h-px w-8 bg-brand-green/40"></div>
+        <h3 class="font-heading text-xl md:text-2xl font-bold text-white text-center">
+          Línea de Créditos
+        </h3>
+        <div class="h-px w-8 bg-brand-green/40"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {creditLines.map((card) => (
+          <div class="relative bg-gradient-to-br from-[#1A1A1A] to-[#161616] border border-white/5 rounded-2xl p-6 hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-green/10 group overflow-hidden">
+
+            <!-- Glow esquinado en hover -->
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-brand-green/0 group-hover:bg-brand-green/10 blur-3xl rounded-full transition-all duration-500 pointer-events-none" aria-hidden="true"></div>
+
+            <!-- Ícono con contenedor visual -->
+            <div class="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-brand-green/20 to-brand-green/5 border border-brand-green/20 text-brand-green mb-4 group-hover:scale-110 group-hover:border-brand-green/40 group-hover:shadow-[0_0_20px_rgba(116,191,4,0.25)] transition-all duration-300" set:html={card.icon} />
+
+            <h4 class="relative font-heading text-xl font-bold text-white mb-2">{card.title}</h4>
+            <p class="relative text-gray-300 text-sm leading-relaxed mb-4 min-h-[3rem]">{card.description}</p>
+
+            <div class="relative flex flex-wrap gap-2">
+              {card.tags.map((tag) => (
+                <span class="text-xs text-brand-green bg-brand-green/10 border border-brand-green/20 px-2.5 py-1 rounded-full font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+    </div>
+
+    <!-- ============ BLOQUE 2 — Servicios Adicionales ============ -->
+    <div class="mb-16 md:mb-20">
+
+      <div class="flex items-center justify-center gap-3 mb-8 md:mb-10">
+        <div class="h-px w-8 bg-brand-green/40"></div>
+        <h3 class="font-heading text-xl md:text-2xl font-bold text-white text-center">
+          Servicios Adicionales
+        </h3>
+        <div class="h-px w-8 bg-brand-green/40"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
+        {additionalServices.map((s) => (
+          <div class="flex items-start gap-3 bg-white/[0.03] border border-white/5 rounded-xl px-4 py-3.5 hover:border-brand-green/30 hover:bg-white/[0.05] transition-all duration-200">
+            <div class="w-6 h-6 rounded-full bg-brand-green/20 border border-brand-green/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <span class="text-gray-200 text-sm md:text-base leading-snug">{s}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- ============ BLOQUE 3 — Stats Banner ============ -->
+    <div class="relative bg-gradient-to-br from-brand-green/15 via-brand-green/5 to-transparent border border-brand-green/20 rounded-3xl p-8 md:p-10 overflow-hidden">
+
+      <!-- Decorative blob -->
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-brand-green/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-brand-blue/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center">
+        {stats.map((stat) => (
+          <div>
+            <p class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-2 leading-none tracking-tight">
+              {stat.value}
+            </p>
+            <p class="text-gray-300 text-[11px] sm:text-xs md:text-sm uppercase tracking-wider font-medium">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
 
   </div>

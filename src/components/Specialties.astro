@@ -1,89 +1,144 @@
 ---
 const segments = [
   {
-    emoji: '👴',
+    prefix: 'Crédito por libranza para',
     title: 'Pensionados',
-    subtitle: 'Hasta 90 años de edad',
+    tagline: 'Hasta los 90 años, con o sin reportes en centrales de riesgo.',
     points: [
       'Todas las pagadurías nacionales',
       'Montos desde $500.000',
       'Aprobación en 24-48 horas',
-      'Con o sin reportes en centrales',
     ],
-    accent: 'brand-green',
+    photo: '/images/personas/pensionados.webp',
+    accent: 'green',
   },
   {
-    emoji: '🎖️',
+    prefix: 'Crédito por libranza para',
     title: 'Fuerzas Armadas',
-    subtitle: 'Policía, Ejército, Armada y Fuerza Aérea',
+    tagline: 'Policía, Ejército, Armada y Fuerza Aérea — activos y en retiro.',
     points: [
-      'Activos y en retiro',
-      'Con y sin reportes',
       'Tasas preferenciales por libranza',
+      'Con y sin reportes',
       'Trámites 100% ágiles',
     ],
-    accent: 'brand-blue',
+    photo: '/images/personas/militar.webp',
+    accent: 'blue',
   },
   {
-    emoji: '📚',
+    prefix: 'Crédito por libranza para',
     title: 'Docentes',
-    subtitle: 'Propiedad, provisionales y definitivas',
+    tagline: 'Provisionales, temporales o en propiedad. Todas las secretarías de educación.',
     points: [
       'Sector oficial y privado',
-      'Todas las secretarías de educación',
       'Requisitos mínimos',
       'Sin importar el tiempo en servicio',
     ],
-    accent: 'brand-green',
+    photo: '/images/personas/profesora.webp',
+    accent: 'green',
   },
   {
-    emoji: '💼',
+    prefix: 'Crédito para',
     title: 'Independientes',
-    subtitle: 'Con o sin Cámara de Comercio',
+    tagline: 'Trabajadores por cuenta propia. Con o sin Cámara de Comercio.',
     points: [
       'Sin necesidad de nómina fija',
       'Evaluamos capacidad de pago real',
-      'Respuesta rápida',
       'Asesoría personalizada',
     ],
-    accent: 'brand-blue',
+    photo: '/images/personas/emprendedor.webp',
+    accent: 'blue',
   },
 ];
 ---
 
-<section id="especialidades" class="bg-[#1A1A1A] py-20 px-4">
-  <div class="max-w-6xl mx-auto">
+<section id="especialidades" class="relative bg-[#1A1A1A] py-20 px-4 overflow-hidden">
+
+  <!-- Orbe ambiental -->
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-brand-green/[0.06] blur-[150px] rounded-full pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-6xl mx-auto">
 
     <!-- Encabezado -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-12 md:mb-16">
       <span class="text-brand-green text-sm font-semibold uppercase tracking-widest">Para quién trabajamos</span>
       <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
         Nuestras Especialidades
       </h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-        9+ años especializándonos en los segmentos con mayor necesidad de crédito justo en Colombia.
+      <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+        +9 años especializándonos en los segmentos con mayor necesidad de crédito justo en Colombia.
       </p>
     </div>
 
-    <!-- Grid 2x2 -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {segments.map((seg) => (
-        <div class="bg-[#111111] border border-white/5 rounded-2xl p-8 hover:border-brand-green/20 transition-all duration-300 group">
-          <div class="text-4xl mb-4">{seg.emoji}</div>
-          <h3 class="font-heading text-xl font-bold text-white mb-1">{seg.title}</h3>
-          <p class="text-brand-green text-sm font-medium mb-6">{seg.subtitle}</p>
-          <ul class="space-y-3">
-            {seg.points.map((point) => (
-              <li class="flex items-start gap-2 text-gray-400 text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <!-- Mini-posters por persona -->
+    <div class="space-y-6 md:space-y-8">
+      {segments.map((seg, i) => {
+        const isReversed = i % 2 === 1;
+        const accentBg = seg.accent === 'blue'
+          ? 'from-brand-blue/30 via-brand-blue-dark/20 to-brand-green/10'
+          : 'from-brand-green/25 via-brand-green/10 to-brand-blue/10';
+        const accentRadial = seg.accent === 'blue'
+          ? 'bg-[radial-gradient(circle_at_30%_70%,rgba(14,68,117,0.35),transparent_60%)]'
+          : 'bg-[radial-gradient(circle_at_30%_70%,rgba(116,191,4,0.18),transparent_60%)]';
+        return (
+          <article class="grid md:grid-cols-2 bg-[#111111] border border-white/5 rounded-3xl overflow-hidden hover:border-brand-green/20 transition-all duration-300">
+
+            <!-- Foto / Placeholder -->
+            <div class={`relative aspect-[4/3] md:aspect-auto md:min-h-[420px] flex items-center justify-center overflow-hidden bg-gradient-to-br ${accentBg} ${isReversed ? 'md:order-2' : ''}`}>
+              {seg.photo ? (
+                <img
+                  src={seg.photo}
+                  alt={seg.title}
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <>
+                  <div class={`absolute inset-0 ${accentRadial}`} aria-hidden="true"></div>
+                  <span
+                    class="relative font-heading font-extrabold text-white/15 leading-none select-none tracking-tighter
+                           text-[9rem] sm:text-[11rem] md:text-[12rem] lg:text-[15rem]"
+                    aria-hidden="true"
+                  >
+                    {seg.title.charAt(0)}
+                  </span>
+                </>
+              )}
+            </div>
+
+            <!-- Texto -->
+            <div class={`p-7 md:p-10 lg:p-12 flex flex-col justify-center ${isReversed ? 'md:order-1' : ''}`}>
+
+              <p class="text-brand-green text-[11px] md:text-xs uppercase font-semibold tracking-widest mb-3">
+                {seg.prefix}
+              </p>
+
+              <h3 class="font-heading font-extrabold text-white mb-4 leading-[0.95] tracking-tight
+                         text-4xl md:text-5xl lg:text-6xl">
+                {seg.title}
+              </h3>
+
+              <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
+                {seg.tagline}
+              </p>
+
+              <ul class="space-y-3">
+                {seg.points.map((point) => (
+                  <li class="flex items-start gap-3 text-gray-200 text-sm md:text-base leading-snug">
+                    <span class="w-5 h-5 rounded-full bg-brand-green/20 border border-brand-green/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+
+          </article>
+        );
+      })}
     </div>
 
   </div>

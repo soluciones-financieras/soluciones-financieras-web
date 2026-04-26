@@ -34,14 +34,22 @@ const reasons = [
 
 const team = [
   {
+    photo: '/images/xiomara_ceo.PNG',
+    name: 'Xiomara',
+    role: 'CEO · Fundadora',
+    objectPosition: 'object-center',
+  },
+  {
     photo: '/images/equipo-abogada.jpg',
     name: 'Abogada del Equipo',
-    role: 'Asesora Jurídica y Limpieza Crediticia',
+    role: 'Asesora Jurídica · Limpieza Crediticia',
+    objectPosition: 'object-top',
   },
   {
     photo: '/images/equipo-asesora.jpg',
     name: 'Asesora Financiera',
     role: 'Gestora de Créditos por Libranza',
+    objectPosition: 'object-top',
   },
 ];
 ---
@@ -75,23 +83,35 @@ const team = [
 
     <!-- Equipo -->
     <div class="text-center mb-10">
-      <h3 class="font-heading text-2xl font-bold text-white">Nuestro Equipo</h3>
-      <p class="text-gray-400 mt-2">Profesionales comprometidos con tu bienestar financiero.</p>
+      <h3 class="font-heading text-2xl md:text-3xl font-bold text-white">Nuestro Equipo</h3>
+      <p class="text-gray-300 mt-2">Profesionales comprometidos con tu bienestar financiero.</p>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-8 justify-center">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
       {team.map((member) => (
-        <div class="flex flex-col items-center text-center bg-[#1A1A1A] border border-white/5 rounded-2xl overflow-hidden w-full sm:max-w-xs">
+        <article class="relative aspect-[3/4] rounded-2xl overflow-hidden group border border-white/10 hover:border-brand-green/30 transition-colors duration-300 bg-[#1A1A1A]">
+
+          <!-- Foto full bleed -->
           <img
             src={member.photo}
             alt={member.name}
-            class="w-full h-64 object-cover object-top"
+            class={`absolute inset-0 w-full h-full object-cover ${member.objectPosition} transition-transform duration-700 group-hover:scale-105`}
+            loading="lazy"
           />
-          <div class="p-6">
-            <h4 class="font-heading font-bold text-white text-lg">{member.name}</h4>
-            <p class="text-brand-green text-sm mt-1">{member.role}</p>
+
+          <!-- Gradiente negro inferior (lectura del texto) -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+          <!-- Resplandor verde encendido (estilo Hero) -->
+          <div class="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-brand-green/40 via-brand-green/15 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+          <!-- Banda inferior con blur + tinte verde + glow -->
+          <div class="absolute bottom-0 inset-x-0 px-5 py-4 backdrop-blur-md bg-brand-green/15 border-t border-brand-green/40 shadow-[0_-8px_24px_rgba(116,191,4,0.2)]">
+            <h4 class="font-heading font-bold text-white text-lg leading-tight drop-shadow-md">{member.name}</h4>
+            <p class="text-brand-green text-sm mt-1 font-medium drop-shadow-md">{member.role}</p>
           </div>
-        </div>
+
+        </article>
       ))}
     </div>
 
