@@ -18,3 +18,23 @@ Thumbs.db
 # Environment
 .env
 .env.*
+
+# Material de origen (no debe ir al repo)
+/*.pdf
+/*.docx
+/*.jpeg
+/*.jpg
+/*.PNG
+/*.png
+/index.html
+/Captura de pantalla*
+/WhatsApp Image*
+/IDENTIDAD DE MARCA*/
+/MARCA DE COLORES*
+/dise*o figma*
+/hero soluci*
+/herosoluciones*
+
+# Documentos sensibles (facturas, recibos, etc.)
+**/Invoice-*.pdf
+**/Receipt-*.pdf
