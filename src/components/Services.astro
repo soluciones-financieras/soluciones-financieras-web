@@ -25,6 +25,7 @@ const creditLines = [
     description: 'Trabajadores por cuenta propia. Con o sin Cámara de Comercio.',
     tags: ['Con CC', 'Sin CC'],
   },
+  
 ];
 
 // Bloque 2 — Servicios Adicionales (checklist)
@@ -98,6 +99,92 @@ const stats = [
           </div>
         ))}
       </div>
+    </div>
+
+    <!-- ============ BANNER — Seguros (Summit Life) ============ -->
+    <div class="mb-16 md:mb-20">
+      <article class="relative grid grid-cols-1 md:grid-cols-[400px_1fr] lg:grid-cols-[440px_1fr] bg-gradient-to-br from-brand-green/15 via-brand-green/5 to-transparent border border-brand-green/25 rounded-3xl overflow-hidden hover:border-brand-green/45 transition-all duration-300">
+
+        <!-- Decorative blob -->
+        <div class="absolute -top-20 -right-20 w-60 h-60 bg-brand-green/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+
+        <!-- Imagen Summit Life -->
+        <div class="relative aspect-[16/9] md:aspect-auto md:min-h-[320px] overflow-hidden bg-gradient-to-br from-brand-blue/30 via-brand-blue-dark/20 to-brand-green/20">
+          <img
+            src="/images/seguros.webp"
+            alt="Seguros de Vida — Summit Life Ltda"
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Texto -->
+        <div class="relative p-6 md:p-8 flex flex-col justify-center">
+
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 self-start mb-3 px-3 py-1 rounded-full bg-brand-green/15 border border-brand-green/30 text-brand-green text-[10px] font-bold uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>
+            Aliado · Summit Life Ltda
+          </div>
+
+          <h3 class="font-heading text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight">
+            Seguros de Vida
+          </h3>
+
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-4 max-w-xl">
+            Protección integral con beneficios que de verdad se usan:
+          </p>
+
+          <!-- Lista de coberturas -->
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2 mb-5 text-sm text-gray-200">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Muerte accidental</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Asistencia exequial</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Telemedicina</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Atención médica domiciliaria</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Membresía GYM</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Directorio médico</span>
+            </li>
+          </ul>
+
+          <a href="#contacto" class="inline-flex items-center gap-2 self-start text-brand-green text-sm font-bold hover:text-brand-green-light transition-colors">
+            Conocer planes y tarifas
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+
+      </article>
     </div>
 
     <!-- ============ BLOQUE 2 — Servicios Adicionales ============ -->
